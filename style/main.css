@@ -1,0 +1,331 @@
+/* main style sheet */
+*{
+    margin: 0;
+    padding: 0;
+}
+hr {
+    width: 30px;
+    height: 5px;
+    background-color: rgb(196, 31, 132);
+ 
+}
+
+button {
+    font-size: 0.8rem;
+    font-weight: 700;
+    outline: none;
+    border: none;
+    background-color: #1d1d1d;
+    color: aliceblue;
+    padding: 12px 30px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+button:hover, btn-primary:hover {
+    background-color: #726e72;
+}
+
+
+.navbar {
+    top: 0;
+    left: 0;
+    font-size: 16px;
+    background-color: rgb(207,107,169);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+
+#bar {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: black;
+    transition: .3s ease;
+
+}
+#bar:hover,
+#bar:active,
+#bar:focus {
+    color: aqua;
+}
+
+@media only screen and (max-width:990px) {
+    #navbarSupportedContent > ul {
+        
+        margin: 0.5 rem;
+        justify-content: flex-end;
+        align-items: flex-end;
+        text-align: right;
+    }
+    #navbarSupportedContent > ul > li:nth-child(n) > a {
+        padding: 10px 0;
+    }
+
+}
+
+#navbarSupportedContent > ul > li:nth-child(n) > a {
+    padding: 0 20px;
+    color: black;
+    transition: 0.2s all;
+}
+
+#navbarSupportedContent > ul > li:nth-child(n) > a:hover,
+#navbarSupportedContent > ul > li:nth-child(n) > a:active,
+.navbar i:hover,
+.navbar i:active {
+    color: white;
+}
+
+.navbar i {
+    font-size: 1.2rem;
+    padding: 0 10px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s ease;
+}
+/* #home {
+    margin-bottom:  ;
+} */
+
+
+#home span {
+    color:  rgb(207,107,169);
+}
+.banner-text {
+    /* display: inline; */
+    display: flex;
+    flex-direction: column;
+    /* justify-content: flex-ce; */
+    /* align-items: center; */
+    /* margin-left: 1000px; */
+    /* background-color: yellow;     */
+    padding-right: 10%;
+}
+
+.banner-btn {
+    margin-right: 55%;
+}
+
+
+.card {
+    position: relative;
+    height: 100%;
+    
+    transition: .3s ease;
+}
+
+.card-body {
+    position: absolute;
+    bottom: 0;
+}
+.card-body .btn {
+    background-color:  rgb(207,107,169);
+}
+
+.row .card img:hover {
+    cursor: pointer;
+    background-color:   rgba(135, 101, 101, 0.6);
+    transform: scale(1.1);
+}
+
+.products {
+    cursor: pointer;
+    margin-bottom: 1.8rem;
+}
+
+.products img {
+    transition: 0.3s all;
+}
+.products img:hover {
+    opacity: 0.6;;
+}
+
+.products button {
+    background-color:  rgb(207,107,169);
+    transform: translateY(20px);
+    opacity: 0;
+    transition: 0.3s all;
+}
+
+.products:hover button {
+    
+    transform: translateY(0px);
+    opacity: 1;
+  
+}
+.stars {
+    padding: 10px 0;
+}
+.stars i {
+    font-size: 0.7rem;
+    color: gold;
+}
+
+#banner-flow h4 {
+    color: white;
+    text-transform: uppercase;
+}
+#banner-flow h3 {
+    color: white;
+}
+#banner-flow button {
+    background-color:  rgb(207,107,169);
+}
+
+footer {
+    background-color: black;
+}
+
+footer h5 {
+    color: #d8d8d8;
+    font-weight: 700;
+    font-size: 1.3rem;
+}
+footer h6 {
+    color: #999999;
+}
+footer li {
+    padding-bottom: 4px;
+   }
+
+   footer li a {
+    font-size: 0.9rem;
+    color: #999999;
+   }
+
+   footer li a:hover {
+    color: white;
+   }
+
+   footer p {
+    color: #999999;
+    font-size: 0.9rem;
+   }
+
+body > footer > div.row.container.mx-auto.pt-4 > div:nth-child(1) > i {
+       
+    color: white;
+}
+footer .copyright a {
+    color: #000;
+    width: 36px;
+    height: 36px;
+    background-color: white;
+    display: inline-block;
+    text-align: center;
+    line-height: 36px;
+    border-radius: 50%;
+    transition: 0.3s ease;
+    margin: 0 4px;
+}
+footer .copyright a:hover {
+    color: white;
+    background-color: rgb(207,107,169);
+}
+
+#home-btn {
+    background-color: rgb(207,107,169);
+}
+
+#home-btn:hover {
+    background-color: black;
+}
+
+
+/* cart styling */
+#cart-container {
+    overflow-x: auto;
+}
+
+#cart-container table {
+    border-collapse: collapse;
+    width: 100%;
+    table-layout: fixed;
+    white-space: nowrap;
+}
+
+#cart-container table thead {
+    font-weight: 700;
+}
+
+#cart-container table thead td {
+    background-color: rgb(207,107,169);
+    color: white;
+    border: none;
+    padding: 5px 0;
+}
+
+#cart-container table td {
+    border: 1px solid #1d1d1d;
+    text-align: center;
+}
+
+#cart-container table td:nth-child(1) {
+    width: 100px;
+}
+
+#cart-container table td:nth-child(2),
+#cart-container table td:nth-child(3)
+ {
+    width: 200px;
+}
+
+
+#cart-container table td:nth-child(4),
+#cart-container table td:nth-child(5),
+#cart-container table td:nth-child(6)
+ {
+    width: 150px;
+}
+
+#cart-container table tbody img {
+    width: 100px;
+    height: 80px;
+    object-fit: cover;
+}
+
+#cart-container table tbody i {
+    color: #726e72;
+}
+
+#cart-bottom .total>div,
+#cart-bottom .coupon>div {
+    border: 1px solid #1d1d1d;
+    /* text-align: center; */
+}
+
+#cart-bottom .coupon h5,
+#cart-bottom .total h5 {
+    background: rgb(207,107,169);
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    font-weight: 700;
+    
+}
+
+#cart-bottom .coupon p,
+#cart-bottom .coupon input {
+    padding: 0 10px;
+} 
+
+#cart-bottom .coupon input {
+    height: 45px;
+    margin: 0 0 20px 10px;
+} 
+
+#cart-bottom .total div>div {
+    padding: 0 10px;
+}
+
+.second-hr {
+    background: #726e72;
+    width: 100%;
+    height: 1px;
+}
+
+.total button {
+    display: flex;
+    justify-content: flex-end;
+    margin: 0 10px 10px 0;
+}

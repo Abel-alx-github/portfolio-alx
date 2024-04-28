@@ -1,0 +1,6 @@
+git init;
+git add .;
+git commit -m "front end";
+git branch -M main;
+git remote add origin https://github.com/Abel-alx-github/portfolio-alx.git;
+git push -u origin main;
