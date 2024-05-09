@@ -56,6 +56,35 @@ async function product_detail(url, callback) {
 
 
 
+async function deleteCartItem(product_id) {
+  try {
+     console.log("product_id", product_id)
+     const cartId = localStorage.getItem('cartId');
+     const url = `http://localhost:5000/cart/items/${cartId}/${product_id}/`;
+     console.log("url", url)
+     const response = await fetch(url, {
+           method: 'DELETE', 
+           headers: {
+                    'Content-Type': 'application/json'
+	        }
+	  });
+
+          if (response.ok) {
+             const data = await response.json();
+	     const cartItems = data.cart_items || [];
+	     console.log(cartItems); 
+	   
+	fetchCartData();
+          } else {
+            console.error('Error fetching cart data:is not ok', response.statusText);
+            // Handle errors gracefully, e.g., display an error message to the user
+	    }
+    } catch (error) {
+        console.error('Error:', error);
+        // Handle unexpected errors
+    }
+}
+
 
 
 async function updateCartUI(cartItems) {
@@ -64,7 +93,7 @@ async function updateCartUI(cartItems) {
   cartItemsContainer.innerHTML = '';
   let subtotalPrice = 0; // Accumulate subtotal price
   
-const shippingCost = 10; // Replace with your logic
+const shippingCost = 10; //
 
   cartItems.forEach(async cartItem => {
        product_detail(cartItem.url, function(productData) {
@@ -90,7 +119,7 @@ const shippingCost = 10; // Replace with your logic
 		        const totalCell = document.createElement('td');
 		        
 			// Example content for each cell (use productData from the callback)
-		        deleteCell.innerHTML = `<a href="#"><i class="fas fa-trash"></i></a>`;
+     deleteCell.innerHTML = `<a href="#" class="delete-cart-item" data-product-id="${productData.id}" onclick="deleteCartItem('${productData.id}')"><i class="fas fa-trash"></i></a>`;
 		        imageCell.innerHTML = `<img src="${productData.image_url}" alt="">`;
 		        productCell.innerHTML = `<h5>${productData.name}</h5>`;
 		        priceCell.innerHTML = `<h5>$${productData.price}</h5>`;
@@ -112,6 +141,28 @@ const shippingCost = 10; // Replace with your logic
 	  });
 
 }
+
+
+
+
+
+
+
+/**
+  const deleteCartItemButtons = document.querySelectorAll('.delete-cart-item');
+
+deleteCartItemButtons.forEach(button => {
+		  button.addEventListener('click', function(event) {
+				      event.preventDefault(); // Prevent default anchor tag behavior
+
+				          const productId = this.dataset.productId;
+					      deleteCartItem(productId);
+					        });
+		  });
+
+
+
+**/
 
 
 

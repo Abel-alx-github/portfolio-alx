@@ -16,6 +16,15 @@ CORS(app)
 def close_db(error):
     storage.close()
 
+@app.route('/index.html')
+def home():
+    return render_template("index.html")
+
+
+@app.route('/clothes.html')
+def clothe():
+    return render_template("clothes.html")
+
 @app.route('/clothes', methods=['GET'], strict_slashes=False)
 def get_clothes():
     # from .models import storage
@@ -60,7 +69,6 @@ def get_product_by_id(id):
                       "description": product.description, "image_url": product.image_url,
                       "url": product.url + product.id}
                    ]
-    print("product.........", product_list)
     return jsonify({'products': product_list}), 200
 
 @app.route('/cart/add', methods=['POST'], strict_slashes=False)
@@ -70,15 +78,10 @@ def addToCart():
         quantity = request.json.get("quantity", 1)
         cart_id = request.json.get('cartId')
         url = request.json.get('url')
-        print("url= ", url)
-        # cart = storage.get(Cart, cart_id)
-        # if not cart:
-        #    cart = Cart(id=str(uuid.uuid4()))
         new_cart = storage.get(Cart, cart_id)
         if not new_cart:
             new_cart = Cart(id=cart_id) 
             new_cart.save()
-            print("new cart is created")
         product = storage.get(Product, product_id)
         if not product:
             return jsonify({"error": 'product not found'}), 404
@@ -88,13 +91,10 @@ def addToCart():
         for item in cart_items:
             if item.product_id == product_id and item.cart_id == cart_id:
                 item.quantity += quantity
-                print('befor saving')
                 item.save()
                 return jsonify({'message' : 'product addded/updated to cart'})
-        print("creat CartItem") 
         cart_item = CartItem(cart_id=cart_id, product_id=product_id, quantity=quantity, url=url)
         cart_item.save()
-        print('last saving')
 
 
         return jsonify({'message' : 'product addded to cart'})
@@ -107,7 +107,6 @@ def get_cart_items(cart_id):
     try:
         #cart_id = request.args.get('cart_id')  # Get cart_id from query parameter
         # Check for valid cart_id
-        print('cart_iddd  ', cart_id)
         if not cart_id:
             return jsonify({'error': 'Missing cart_id'}), 400
         # Retrieve cart and its items
@@ -128,24 +127,22 @@ def get_cart_items(cart_id):
 
 
 
-@app.route('/cart/items/<item_id>', methods=['DELETE'])
-def delete_cart_item(item_id):
+@app.route('/cart/items/<cart_id>/<product_id>', methods=['DELETE'], strict_slashes=False)
+def delete_cart_item(cart_id, product_id):
     try:
-        # Retrieve cart item by ID
-        cart_item = storage.get(CartItem, item_id)
+        cart_items = storage.all(CartItem).values()
+        for cart_item in cart_items:
+            if cart_item.cart_id == cart_id:
+                if cart_item.product_id == product_id:
+                    storage.delete(cart_item)
+                    storage.save()
+                    return jsonify({'message': 'Cart item deleted'}), 200
 
         # Check for valid item_id
-        if not cart_item:
-            return jsonify({'error': 'Cart item not found'}), 404
-
-        # Delete the cart item
-        cart_item.delete()
-        storage.save()
-
-        return jsonify({'message': 'Cart item deleted'}), 200
+        return jsonify({'error': 'Cart item not found'}), 404
+                      
     except Exception as e:
         print(f"Error deleting cart item: {e}")
-        # db.session.rollback()  # Rollback on errors
         return jsonify({'error': 'Internal server error'}), 500
 
 
