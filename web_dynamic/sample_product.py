@@ -6,13 +6,14 @@ import models
 from models.product import Product
 from models.category import Category
 
-
+# category name and id
 c_data = [{'name': 'clothes', 'id': 1,}, {'name': 'shoes', 'id':2 ,}, {'name': 'watches', 'id':3 ,}, {'name': 'accessories', 'id':4 ,}]
 
+# add and save category to database
 for data in c_data:
     c = Category(**data)
     c.save()
-
+# list of dictionary object(product)
 p_data = [
          {"name": "cloth..", "category_id": 1, "price": 55, "description": "best close", "image_url": "../static/image/clothes/cl0.jpg", "url": "http://127.0.0.1:5000/products/"},
 	 {"name": "cloth..", "category_id": 1, "price": 55, "description": "best close", "image_url": "../static/image/clothes/cl1.jpg" , "url": "http://127.0.0.1:5000/products/"},
@@ -46,7 +47,7 @@ p_data = [
          {"name": "accessories", "category_id":4 , "price":80 , "description": "best accessory", "image_url": "../static/image/accessories/ac5.jpg", "url": "http://127.0.0.1:5000/products/"},
 
 	]
-
+# for loop of product iterate and save to database
 for p_d in p_data:
     p = Product(**p_d)
     p.save()
