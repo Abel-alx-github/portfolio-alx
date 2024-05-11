@@ -8,6 +8,7 @@ from sqlalchemy import Column, String, Integer
 
 
 class User(BaseModel, Base):
+    """class user """
     __tablename__ = 'users'
     user_name = Column(String(255), unique=True, nullable=False)
 
