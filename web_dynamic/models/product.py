@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-""" holds class State"""
+""" holds class Product"""
 import models
 from models.base_model import BaseModel, Base
 from os import getenv
@@ -9,7 +9,7 @@ from sqlalchemy.orm import relationship
 
 
 class Product(BaseModel, Base):
-    """Representation of state """
+    """Representation of Product """
     __tablename__ = 'products'
     name = Column(String(128), nullable=False)
     description = Column(String(256))
