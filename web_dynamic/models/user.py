@@ -9,7 +9,7 @@ from sqlalchemy import Column, String, Integer
 
 class User(BaseModel, Base):
     __tablename__ = 'users'
-    user_name = Column(String, unique=True, nullable=False)
+    user_name = Column(String(255), unique=True, nullable=False)
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
