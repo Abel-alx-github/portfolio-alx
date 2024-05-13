@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-""" contains cart class"""
+""" contains module for cart class defination"""
 
 import models
 from models.base_model import BaseModel, Base
@@ -12,6 +12,8 @@ class Cart(BaseModel, Base):
     """ define Cart classes"""
     __tablename__ = 'carts'
     items = relationship('CartItem', backref='cart')
+    
     def __init__(self, *args, **kwargs):
+        # init the inherited class from BaseModel
         super().__init__(*args, **kwargs)
     
