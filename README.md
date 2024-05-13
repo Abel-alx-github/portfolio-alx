@@ -78,7 +78,62 @@ Steps:
    
    Update the cart quantities as needed.
 
+## Technologies Used
 
+### Front-End:
+  **HTML (Markup Language):** Provides the core structure and content of the website.
+  
+  **CSS (Bootstrap):** Handles styling and layout, ensuring responsiveness across different devices.
+  
+  **JavaScrip:** Enables dynamic data fetching and manipulation, enhancing user interaction.
+
+### Back-End:
+  **Python Flask:** A lightweight web framework for creating robust and scalable APIs.
+  
+  **SQLAlchemy:** An ORM (Object-Relational Mapper) that simplifies database interaction and data model management.
+ 
+  **MySQL:** A widely used relational database for storing product data, categories, carts, cart items, and user information.
+  
+### Deployment:
+  
+  **Operating System:** Choose a stable and reliable operating system like Ubuntu Server for production deployment.
+  
+  **Web Server:** Deploy the application using a high-performance web server like Nginx.
+  
+  **WSGI Server:** A WSGI (Web Server Gateway Interface) server like Gunicorn is needed to connect Flask with Nginx.
+
+## project structure visualized as a tree:
+
+    web_dynamic/
+    ├── __init__.py
+    ├── app.py 
+    ├── cart_operation.py
+    ├── models/
+    │   ├── __init__.py
+    │   ├── base_model.py
+    │   ├── cart.py
+    │   ├── cart_item.py
+    │   ├── category.py
+    │   ├── engine/
+    │   │   └── db_storage.py
+    │   ├── product.py
+    │   └── user.py
+    ├── requirements.txt
+    ├── sample_product.py
+    ├── static/
+    │   ├── image/
+    │   ├── img/
+    │   ├── js/
+    │   └── style/
+    └── templates/
+        ├── accessories.html
+        ├── clothes.html
+        ├── contact.html
+        ├── index.html
+        ├── old.html
+        ├── product-detail.html
+        ├── shoes.html
+        └── wathes.html
 
 ## Contributing
    We welcome contributions from the community to help make FreButiqe even better! Here's how you can get involved:
@@ -142,5 +197,7 @@ Steps:
    **This license grants you the freedom to:**
     
    Use the code: Freely use, modify, and distribute the code in your own projects, commercial or non-commercial.
+   
    Modify the code: Adapt and change the code to suit your specific needs.
+   
    Redistribute the code: Share the code with others, either in its original form or modified versions.
