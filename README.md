@@ -136,3 +136,11 @@ Steps:
                    (https://prestashop.com/).
    
   
+## License
+   FreButiqe is licensed under the [MIT License](https://opensource.org/licenses/MIT).
+    
+   **This license grants you the freedom to:**
+    
+   Use the code: Freely use, modify, and distribute the code in your own projects, commercial or non-commercial.
+   Modify the code: Adapt and change the code to suit your specific needs.
+   Redistribute the code: Share the code with others, either in its original form or modified versions.
