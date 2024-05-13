@@ -205,3 +205,5 @@ Steps:
    Modify the code: Adapt and change the code to suit your specific needs.
    
    Redistribute the code: Share the code with others, either in its original form or modified versions.
+
+   Copyright (c) 2024 Abel Tibeso
