@@ -63,7 +63,7 @@ Steps:
 
 **Product Details Pages:** Clicking on a product takes you to its dedicated page with a detailed description, high-quality images, size and color options, and customer reviews (if available).
 
-[Shop Now](HTTP://fre.abeldev.tech)
+[Start Browsing Now](HTTP://fre.abeldev.tech)
 
 ### Adding Items to Cart:
 
