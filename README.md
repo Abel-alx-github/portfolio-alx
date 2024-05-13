@@ -137,7 +137,7 @@ Steps:
    
   
 ## License
-   FreButiqe is licensed under the [MIT License](https://opensource.org/licenses/MIT).
+   FreButiqe is licensed under the [MIT License](/LICENSE). https://github.com/Abel-alx-github/portfolio-alx/blob/main/LICENSE
     
    **This license grants you the freedom to:**
     
