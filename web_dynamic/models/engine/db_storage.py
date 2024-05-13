@@ -15,15 +15,17 @@ import sqlalchemy
 from sqlalchemy import create_engine
 from sqlalchemy.orm import scoped_session, sessionmaker
 
+# dictionary object of classes
 classes = {"Product": Product, "Category": Category, "User": User, "Cart": Cart, "CartItem": CartItem}
 
 
 class DBStorage:
-    """interaacts with the MySQL database"""
+    """represent DBStorage class to interact with the MySQL database"""
     __engine = None
     __session = None
 
     def __init__(self):
+        # init the instans
         url = 'mysql+mysqldb://fre:{}@localhost/fre_db'.format('fre0912pwd')
         self.__engine = create_engine(url)
 
