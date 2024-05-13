@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-""" create user Class"""
+""" module that define user Class"""
 
 import models
 from models.base_model import BaseModel, Base
@@ -13,5 +13,6 @@ class User(BaseModel, Base):
     user_name = Column(String(255), unique=True, nullable=False)
 
     def __init__(self, *args, **kwargs):
+        # init inherited BaseModel class
         super().__init__(*args, **kwargs)
 
