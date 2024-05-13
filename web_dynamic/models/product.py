@@ -17,8 +17,7 @@ class Product(BaseModel, Base):
     image_url = Column(String(256))
     category_id = Column(String(50), ForeignKey('categories.id'))
     url =  Column(String(256))
-    # category = relationship('Category', backref='products', lazy=True)
-
+    
     def __init__(self, *args, **kwargs):
         """initializes product"""
         super().__init__(*args, **kwargs)
