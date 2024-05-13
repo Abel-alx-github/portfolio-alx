@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 
-""" add sample data to database of fre_db """
+""" add sample products data to database of fre_db """
 
 import models
 from models.product import Product
@@ -9,10 +9,11 @@ from models.category import Category
 # category name and id
 c_data = [{'name': 'clothes', 'id': 1,}, {'name': 'shoes', 'id':2 ,}, {'name': 'watches', 'id':3 ,}, {'name': 'accessories', 'id':4 ,}]
 
-# add and save category to database
+# for loop iterates over c_data list add and save category to database
 for data in c_data:
     c = Category(**data)
     c.save()
+	
 # list of dictionary object(product)
 p_data = [
          {"name": "cloth..", "category_id": 1, "price": 55, "description": "best close", "image_url": "../static/image/clothes/cl0.jpg", "url": "http://127.0.0.1:5000/products/"},
